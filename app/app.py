@@ -30,9 +30,12 @@ def render_departures(departure_tag, tours=tours):
 
 
 @app.route('/tours/<int:tour_id>/')
-def render_tours(tour_id):
-    return render_template('tour.html')
+def render_tours(tour_id, tours=tours):
+    tour = tours[tour_id]
+    return render_template(
+        'tour.html', tour=tour, departures=departures,
+    )
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

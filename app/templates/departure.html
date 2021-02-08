@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block container %}
   <main class="container mt-3">
-    <h1 class="display-5 mt-4">Летим {{ departure_name }}</h1>
+    <h1 class="display-5 mt-4">Летим {{ departures.get(departure_tag) }}</h1>
     <p class="mb-4">Найдено {{tours|length}}
       {{tours|length|word_agree_with_number('тур')}},
       {{tours.values()|price_limiter}} и {{tours.values()|nights_limiter}}</p>

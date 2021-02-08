@@ -1,7 +1,10 @@
 from flask import Flask, render_template
 
+from filters import word_agree_with_number
+
 
 app = Flask(__name__)
+app.jinja_env.filters['word_agree_with_number'] = word_agree_with_number
 
 
 @app.route('/')
